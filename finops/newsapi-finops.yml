@@ -1,0 +1,127 @@
+name: NewsAPI FinOps
+description: >
+  FOCUS-aligned FinOps Framework cost model for the NewsAPI service at
+  newsapi.org. Covers request-based consumption billing, overage pricing,
+  and cost optimization guidance for each plan tier.
+specificationVersion: "1.0"
+url: https://newsapi.org/pricing
+provider: NewsAPI
+serviceCategory: News Data API
+billingModel: subscription-with-overage
+currency: USD
+costModel:
+  - plan: Developer
+    monthlyBaseCost: 0.00
+    includedRequests: 3000
+    includedRequestsPeriod: month
+    requestsPerDay: 100
+    overagePricePerRequest: null
+    notes: >
+      No-cost plan; strictly enforced at 100 requests/day with no overage
+      option. Suitable for prototyping and local development only.
+  - plan: Business
+    monthlyBaseCost: 449.00
+    includedRequests: 250000
+    includedRequestsPeriod: month
+    overagePricePerRequest: 0.0018
+    breakEvenOverageRequests: 0
+    notes: >
+      At $449/month, effective cost per included request is $0.001796.
+      Overage at $0.0018/request means marginal cost rises slightly above the
+      blended average once the quota is exceeded. Budget for overages when
+      article-search volumes are unpredictable.
+  - plan: Advanced
+    monthlyBaseCost: 1749.00
+    includedRequests: 2000000
+    includedRequestsPeriod: month
+    overagePricePerRequest: 0.0009
+    breakEvenOverageRequests: 0
+    notes: >
+      At $1,749/month, effective cost per included request is $0.0008745.
+      Overage rate of $0.0009/request is below the Business plan overage,
+      rewarding high-volume consumers. Includes a 99.95% uptime SLA, reducing
+      hidden costs from downtime incidents.
+  - plan: Enterprise
+    monthlyBaseCost: null
+    includedRequests: unlimited
+    overagePricePerRequest: null
+    notes: >
+      Custom pricing negotiated directly with NewsAPI. Includes dedicated
+      support and optional on-premise deployment, enabling cost predictability
+      for very large workloads.
+costOptimization:
+  - recommendation: Cache API responses locally
+    description: >
+      NewsAPI results for a given query change infrequently within short time
+      windows. Caching responses for 5-15 minutes can dramatically reduce
+      request counts and keep costs within included quotas.
+    applicablePlans:
+      - Developer
+      - Business
+      - Advanced
+  - recommendation: Filter by sources and domains rather than broad keyword search
+    description: >
+      Targeted source and domain filters reduce the result set to only relevant
+      articles, lowering the need for subsequent filtering requests and reducing
+      total API calls.
+    applicablePlans:
+      - Business
+      - Advanced
+      - Enterprise
+  - recommendation: Use pageSize=100 to batch results
+    description: >
+      Requesting the maximum page size of 100 articles per call reduces the
+      number of paginated requests needed to retrieve a full result set,
+      lowering overall request consumption.
+    applicablePlans:
+      - Developer
+      - Business
+      - Advanced
+  - recommendation: Monitor daily request counts on Developer plan
+    description: >
+      The Developer plan enforces a hard daily cap of 100 requests with no
+      overage. Implement client-side counters and circuit breakers to avoid
+      service disruption during development and testing.
+    applicablePlans:
+      - Developer
+  - recommendation: Upgrade plan before sustained overage
+    description: >
+      On Business and Advanced plans, overage is billed per request. If monthly
+      usage consistently exceeds included quotas by more than 10%, evaluate
+      upgrading to the next tier or negotiating an Enterprise contract to reduce
+      per-request cost.
+    applicablePlans:
+      - Business
+      - Advanced
+focusAlignment:
+  chargeCategory: Usage
+  chargeType: Usage
+  serviceCategory: News Data and Media APIs
+  resourceType: API Request
+  billingPeriod: Monthly
+  pricingUnit: Request
+  skus:
+    - sku: newsapi-developer
+      plan: Developer
+      unitPrice: 0.00
+      currency: USD
+    - sku: newsapi-business-base
+      plan: Business
+      unitPrice: 449.00
+      currency: USD
+      billingPeriod: monthly
+    - sku: newsapi-business-overage
+      plan: Business
+      unitPrice: 0.0018
+      currency: USD
+      pricingUnit: Request
+    - sku: newsapi-advanced-base
+      plan: Advanced
+      unitPrice: 1749.00
+      currency: USD
+      billingPeriod: monthly
+    - sku: newsapi-advanced-overage
+      plan: Advanced
+      unitPrice: 0.0009
+      currency: USD
+      pricingUnit: Request

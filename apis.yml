@@ -1,0 +1,79 @@
+aid: newsapi
+name: NewsAPI
+description: >
+  NewsAPI is a simple, easy-to-use REST API that returns JSON metadata for news
+  articles and breaking headlines published by over 80,000 worldwide sources
+  and blogs. The API supports full-text keyword search across hundreds of
+  millions of articles, filtering by source domain, language, date range, and
+  sorting by relevance or publication date. A dedicated top-headlines endpoint
+  delivers live breaking news by country and category — covering business,
+  entertainment, general, health, science, sports, and technology. Developers
+  authenticate via an API key passed as a query parameter or HTTP header, and
+  all responses are returned as standard JSON.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/apis.yml
+created: "2026-06-12"
+modified: "2026-06-12"
+specificationVersion: "0.19"
+tags:
+  - News
+  - Headlines
+  - Articles
+  - Search
+  - Media
+  - Content
+  - REST
+  - JSON
+apis:
+  - aid: newsapi:newsapi
+    name: NewsAPI
+    description: >
+      REST API providing access to live and historic news articles and top
+      headlines from over 80,000 sources worldwide. Supports keyword search,
+      source filtering, country and category filtering, language selection,
+      date-range queries, and result sorting by relevance, popularity, or
+      publication date.
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://newsapi.org/
+    baseURL: https://newsapi.org/v2
+    tags:
+      - News
+      - Headlines
+      - Articles
+      - Search
+    properties:
+      - type: Documentation
+        url: https://newsapi.org/docs
+      - type: OpenAPI
+        url: https://newsapi.org/docs/endpoints/everything
+    contact:
+      - FN: NewsAPI Support
+        url: https://newsapi.org/
+        email: ""
+common:
+  - type: Website
+    url: https://newsapi.org/
+  - type: Documentation
+    url: https://newsapi.org/docs
+  - type: GitHubOrg
+    url: https://github.com/News-API-gh
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/newsapi
+  - type: Blog
+    url: https://newsapi.org/blog
+  - type: Pricing
+    url: https://newsapi.org/pricing
+  - type: StatusPage
+    url: https://newsapi.org/status
+  - type: X
+    url: https://x.com/newsapi
+  - type: Plans
+    url: plans/newsapi-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/newsapi-rate-limits.yml
+  - type: FinOps
+    url: finops/newsapi-finops.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com

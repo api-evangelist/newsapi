@@ -1,0 +1,85 @@
+name: NewsAPI Plans and Pricing
+description: Pricing tiers for the NewsAPI service at newsapi.org
+specificationVersion: "0.1"
+url: https://newsapi.org/pricing
+plans:
+  - name: Developer
+    description: >
+      Free plan for development and testing across all project types. Access is
+      restricted to localhost via CORS. Articles are returned with a 24-hour
+      delay and search is limited to content published within the past month.
+    url: https://newsapi.org/pricing
+    price: 0.00
+    currency: USD
+    billingCycle: monthly
+    rateLimit: 100
+    rateLimitUnit: day
+    features:
+      - 100 requests per day
+      - 24-hour article delay
+      - Up to 1 month of article history
+      - CORS enabled for localhost only
+      - Basic support
+      - No uptime SLA
+    restrictions:
+      - Development and testing use only
+      - No commercial production use
+      - Localhost CORS only
+  - name: Business
+    description: >
+      Production plan for commercially published projects requiring real-time
+      news access. Includes live top headlines, up to 5 years of article
+      history, CORS enabled for all origins, and 250,000 monthly requests with
+      overage available at $0.0018 per extra request.
+    url: https://newsapi.org/pricing
+    price: 449.00
+    currency: USD
+    billingCycle: monthly
+    rateLimit: 250000
+    rateLimitUnit: month
+    features:
+      - Real-time article access
+      - Live top headlines
+      - Up to 5 years of article history
+      - CORS enabled for all origins
+      - 250,000 requests per month included
+      - Overage at $0.0018 per extra request
+      - Email support
+      - No uptime SLA
+  - name: Advanced
+    description: >
+      High-volume plan for larger projects requiring exceptional throughput.
+      Includes real-time access, 5 years of article history, 2,000,000 monthly
+      requests, reduced overage pricing, priority email support, and a 99.95%
+      uptime SLA.
+    url: https://newsapi.org/pricing
+    price: 1749.00
+    currency: USD
+    billingCycle: monthly
+    rateLimit: 2000000
+    rateLimitUnit: month
+    features:
+      - Real-time article access
+      - Live top headlines
+      - Up to 5 years of article history
+      - CORS enabled for all origins
+      - 2,000,000 requests per month included
+      - Overage at $0.0009 per extra request
+      - Priority email support
+      - 99.95% uptime SLA
+  - name: Enterprise
+    description: >
+      Bespoke enterprise plan for premium data needs, offering unlimited
+      requests, custom SLA terms, dedicated support, and on-premise deployment
+      options. Pricing is provided on request.
+    url: https://newsapi.org/pricing
+    price: 0.00
+    currency: USD
+    billingCycle: custom
+    features:
+      - Unlimited requests
+      - Custom SLA
+      - Dedicated support
+      - On-premise deployment options
+      - Custom data solutions
+    contact: https://newsapi.org/contact
