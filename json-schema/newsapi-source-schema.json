@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/newsapi/main/json-schema/newsapi-source-schema.json",
+  "title": "NewsSource",
+  "description": "A news source or publisher available through the NewsAPI",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "The identifier of the news source. Use with other endpoints.",
+      "example": "techcrunch"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the news source.",
+      "example": "TechCrunch"
+    },
+    "description": {
+      "type": "string",
+      "description": "A description of the news source.",
+      "example": "The latest technology news and information on startups, money, mobile, security, gadgets, and more."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "The URL of the news source homepage.",
+      "example": "https://techcrunch.com"
+    },
+    "category": {
+      "type": "string",
+      "description": "The type of news to expect from this news source.",
+      "enum": [
+        "business",
+        "entertainment",
+        "general",
+        "health",
+        "science",
+        "sports",
+        "technology"
+      ],
+      "example": "technology"
+    },
+    "language": {
+      "type": "string",
+      "description": "The language that this news source writes in (ISO-639-1 code).",
+      "example": "en"
+    },
+    "country": {
+      "type": "string",
+      "description": "The country this news source is based in (ISO 3166-1 alpha-2 code).",
+      "example": "us"
+    }
+  },
+  "required": ["id", "name", "description", "url", "category", "language", "country"]
+}

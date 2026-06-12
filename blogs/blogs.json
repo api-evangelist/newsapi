@@ -1,0 +1,7 @@
+{
+  "blogURL": "https://newsapi.org/blog",
+  "rssURL": null,
+  "note": "No RSS or Atom feed detected on the NewsAPI blog. Blog posts must be scraped directly from the blog page.",
+  "lastChecked": "2026-06-12",
+  "posts": []
+}

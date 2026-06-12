@@ -1,0 +1,110 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "schema": "https://schema.org/",
+    "newsapi": "https://newsapi.org/docs/",
+
+    "Article": "schema:NewsArticle",
+    "NewsSource": "schema:NewsMediaOrganization",
+
+    "article": {
+      "@id": "schema:NewsArticle"
+    },
+    "source": {
+      "@id": "schema:sourceOrganization",
+      "@type": "@id"
+    },
+    "author": {
+      "@id": "schema:author"
+    },
+    "title": {
+      "@id": "schema:headline"
+    },
+    "description": {
+      "@id": "schema:description"
+    },
+    "url": {
+      "@id": "schema:url",
+      "@type": "@id"
+    },
+    "urlToImage": {
+      "@id": "schema:image",
+      "@type": "@id"
+    },
+    "publishedAt": {
+      "@id": "schema:datePublished",
+      "@type": "xsd:dateTime"
+    },
+    "content": {
+      "@id": "schema:articleBody"
+    },
+    "id": {
+      "@id": "schema:identifier"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "category": {
+      "@id": "schema:articleSection"
+    },
+    "language": {
+      "@id": "schema:inLanguage"
+    },
+    "country": {
+      "@id": "schema:countryOfOrigin"
+    },
+    "status": {
+      "@id": "newsapi:status"
+    },
+    "totalResults": {
+      "@id": "newsapi:totalResults",
+      "@type": "xsd:integer"
+    },
+    "articles": {
+      "@id": "newsapi:articles",
+      "@container": "@set"
+    },
+    "sources": {
+      "@id": "newsapi:sources",
+      "@container": "@set"
+    },
+    "code": {
+      "@id": "newsapi:errorCode"
+    },
+    "q": {
+      "@id": "newsapi:searchQuery"
+    },
+    "searchIn": {
+      "@id": "newsapi:searchIn"
+    },
+    "domains": {
+      "@id": "newsapi:domains"
+    },
+    "excludeDomains": {
+      "@id": "newsapi:excludeDomains"
+    },
+    "from": {
+      "@id": "newsapi:fromDate",
+      "@type": "xsd:dateTime"
+    },
+    "to": {
+      "@id": "newsapi:toDate",
+      "@type": "xsd:dateTime"
+    },
+    "sortBy": {
+      "@id": "newsapi:sortBy"
+    },
+    "pageSize": {
+      "@id": "newsapi:pageSize",
+      "@type": "xsd:integer"
+    },
+    "page": {
+      "@id": "newsapi:page",
+      "@type": "xsd:integer"
+    },
+    "apiKey": {
+      "@id": "newsapi:apiKey"
+    }
+  }
+}

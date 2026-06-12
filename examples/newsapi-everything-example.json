@@ -1,0 +1,47 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://newsapi.org/v2/everything",
+    "parameters": {
+      "q": "Apple",
+      "from": "2024-01-14",
+      "sortBy": "popularity",
+      "apiKey": "YOUR_API_KEY"
+    },
+    "headers": {
+      "X-Api-Key": "YOUR_API_KEY"
+    }
+  },
+  "response": {
+    "status": "ok",
+    "totalResults": 4215,
+    "articles": [
+      {
+        "source": {
+          "id": "techcrunch",
+          "name": "TechCrunch"
+        },
+        "author": "Jane Doe",
+        "title": "Apple Reports Record Quarterly Earnings",
+        "description": "Apple Inc. reported record quarterly earnings today, beating analyst expectations for the fourth consecutive quarter.",
+        "url": "https://techcrunch.com/2024/01/15/apple-earnings",
+        "urlToImage": "https://techcrunch.com/images/apple-earnings.jpg",
+        "publishedAt": "2024-01-15T18:00:00Z",
+        "content": "Apple Inc. reported record quarterly earnings today, beating analyst expectations for the fourth consecutive quarter. Revenue reached $119.6 billion... [+4500 chars]"
+      },
+      {
+        "source": {
+          "id": "the-verge",
+          "name": "The Verge"
+        },
+        "author": "John Smith",
+        "title": "Apple Vision Pro hits shelves with mixed reviews",
+        "description": "Apple's long-awaited spatial computing headset is now available to consumers, with critics praising immersion but citing price concerns.",
+        "url": "https://www.theverge.com/2024/02/02/apple-vision-pro-review",
+        "urlToImage": "https://cdn.vox-cdn.com/apple-vision-pro.jpg",
+        "publishedAt": "2024-02-02T10:00:00Z",
+        "content": "Apple's Vision Pro is now available in the United States, marking the company's first new product category in nearly a decade... [+5200 chars]"
+      }
+    ]
+  }
+}

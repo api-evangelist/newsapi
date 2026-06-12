@@ -1,0 +1,46 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://newsapi.org/v2/top-headlines",
+    "parameters": {
+      "country": "us",
+      "category": "technology",
+      "apiKey": "YOUR_API_KEY"
+    },
+    "headers": {
+      "X-Api-Key": "YOUR_API_KEY"
+    }
+  },
+  "response": {
+    "status": "ok",
+    "totalResults": 38,
+    "articles": [
+      {
+        "source": {
+          "id": "bbc-news",
+          "name": "BBC News"
+        },
+        "author": "BBC News",
+        "title": "Tech giants face new EU digital market rules",
+        "description": "Major technology companies must comply with new EU regulations designed to ensure fairer digital markets.",
+        "url": "https://www.bbc.com/news/technology-67890123",
+        "urlToImage": "https://ichef.bbci.co.uk/news/1024/branded_news/12345.jpg",
+        "publishedAt": "2024-01-26T14:00:00Z",
+        "content": "Major technology companies operating in the European Union must now comply with sweeping new digital market regulations... [+2500 chars]"
+      },
+      {
+        "source": {
+          "id": "wired",
+          "name": "Wired"
+        },
+        "author": "Sarah Connor",
+        "title": "AI Breakthroughs Reshaping the Tech Landscape",
+        "description": "A look at how recent AI advances are changing industries from healthcare to finance.",
+        "url": "https://www.wired.com/story/ai-breakthroughs-2024",
+        "urlToImage": "https://media.wired.com/photos/ai-breakthrough.jpg",
+        "publishedAt": "2024-01-26T12:30:00Z",
+        "content": "Artificial intelligence advances in 2024 are reshaping industries at a pace many researchers did not anticipate... [+3200 chars]"
+      }
+    ]
+  }
+}

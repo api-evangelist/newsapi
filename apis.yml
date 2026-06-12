@@ -46,7 +46,17 @@ apis:
       - type: Documentation
         url: https://newsapi.org/docs
       - type: OpenAPI
-        url: https://newsapi.org/docs/endpoints/everything
+        url: https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/openapi/newsapi-newsapi-openapi.yml
+      - type: JSONSchema
+        url: https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/json-schema/newsapi-article-schema.json
+      - type: JSONSchema
+        url: https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/json-schema/newsapi-source-schema.json
+      - type: JSONSchema
+        url: https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/json-schema/newsapi-error-schema.json
+      - type: Vocabulary
+        url: https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/vocabulary/newsapi-vocabulary.yml
+      - type: JSONLDContext
+        url: https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/json-ld/newsapi-context.jsonld
     contact:
       - FN: NewsAPI Support
         url: https://newsapi.org/

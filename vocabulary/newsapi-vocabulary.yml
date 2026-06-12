@@ -1,0 +1,135 @@
+vocabulary:
+  - term: article
+    definition: >
+      A news item returned by the NewsAPI, containing metadata such as title,
+      author, description, URL, publication date, and a truncated content
+      snippet. Each article is associated with a source.
+
+  - term: source
+    definition: >
+      A news publisher or blog that provides content indexed by NewsAPI.
+      Sources have unique identifiers usable across endpoints and are
+      characterized by category, language, and country.
+
+  - term: top-headlines
+    definition: >
+      Live breaking and trending news articles curated by country, category,
+      or specific news source. Updated in near real-time.
+
+  - term: everything
+    definition: >
+      The search endpoint providing access to all indexed articles across all
+      sources. Supports full-text search, date range filtering, domain
+      filtering, language selection, and sorting.
+
+  - term: apiKey
+    definition: >
+      A unique token that authenticates requests to the NewsAPI. Can be passed
+      as a query parameter (apiKey=), via the X-Api-Key header, or via the
+      Authorization header (Bearer optional, no base64 encoding).
+
+  - term: q
+    definition: >
+      The keyword or phrase search parameter. Supports exact phrase matching
+      with quotes, required terms with +, and excluded terms with -.
+      Maximum 500 characters.
+
+  - term: searchIn
+    definition: >
+      Restricts keyword search (q) to specific article fields: title,
+      description, or content. Multiple values can be comma-separated.
+
+  - term: sources
+    definition: >
+      A comma-separated list of news source identifiers to filter results.
+      Maximum of 20 sources per request. Cannot be combined with country or
+      category parameters.
+
+  - term: domains
+    definition: >
+      A comma-separated list of domain names to include in article results
+      (e.g., bbc.co.uk, techcrunch.com).
+
+  - term: excludeDomains
+    definition: >
+      A comma-separated list of domain names to exclude from article results.
+
+  - term: from
+    definition: >
+      ISO 8601 date-time string representing the earliest publication date for
+      returned articles.
+
+  - term: to
+    definition: >
+      ISO 8601 date-time string representing the latest publication date for
+      returned articles.
+
+  - term: language
+    definition: >
+      ISO-639-1 two-letter language code used to filter articles by language.
+      Supported: ar, de, en, es, fr, he, it, nl, no, pt, ru, sv, ud, zh.
+
+  - term: country
+    definition: >
+      ISO 3166-1 alpha-2 two-letter country code used to filter top-headlines
+      by country. Cannot be combined with the sources parameter.
+
+  - term: category
+    definition: >
+      News category filter for top-headlines and sources endpoints.
+      Options: business, entertainment, general, health, science, sports,
+      technology.
+
+  - term: sortBy
+    definition: >
+      Controls the ordering of search results. Options: relevancy (closest
+      match to query first), popularity (popular sources first), publishedAt
+      (newest first, the default).
+
+  - term: pageSize
+    definition: >
+      Number of results to return per page. Default varies by endpoint
+      (20 for top-headlines, 100 for everything). Maximum is 100.
+
+  - term: page
+    definition: >
+      Page number for paginating through results. Starts at 1.
+
+  - term: totalResults
+    definition: >
+      The total count of articles matching the request criteria, regardless
+      of pagination. Use with pageSize to determine total pages.
+
+  - term: publishedAt
+    definition: >
+      ISO 8601 UTC timestamp indicating when a news article was published.
+
+  - term: content
+    definition: >
+      The body text of a news article, truncated to 200 characters in API
+      responses. The full article is accessible via the url field.
+
+  - term: urlToImage
+    definition: >
+      The URL of a relevant image associated with an article, as provided by
+      the source publication.
+
+  - term: status
+    definition: >
+      Top-level response field indicating whether the API request was
+      successful. Values: "ok" (success) or "error" (failure).
+
+  - term: code
+    definition: >
+      Machine-readable error code present in error responses. Examples:
+      apiKeyInvalid, rateLimited, parametersMissing, sourcesTooMany.
+
+  - term: rateLimited
+    definition: >
+      Error state indicating the API key has exceeded its request quota.
+      Clients should back off before retrying.
+
+  - term: apiKeyExhausted
+    definition: >
+      Error state indicating the API key has no remaining requests available
+      in the current billing period.

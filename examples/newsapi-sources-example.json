@@ -1,0 +1,47 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "https://newsapi.org/v2/top-headlines/sources",
+    "parameters": {
+      "category": "technology",
+      "language": "en",
+      "country": "us",
+      "apiKey": "YOUR_API_KEY"
+    },
+    "headers": {
+      "X-Api-Key": "YOUR_API_KEY"
+    }
+  },
+  "response": {
+    "status": "ok",
+    "sources": [
+      {
+        "id": "techcrunch",
+        "name": "TechCrunch",
+        "description": "TechCrunch is a leading technology media property, dedicated to obsessively profiling startups, reviewing new Internet products, and breaking tech news.",
+        "url": "https://techcrunch.com",
+        "category": "technology",
+        "language": "en",
+        "country": "us"
+      },
+      {
+        "id": "the-verge",
+        "name": "The Verge",
+        "description": "The Verge covers the intersection of technology, science, art, and culture.",
+        "url": "https://www.theverge.com",
+        "category": "technology",
+        "language": "en",
+        "country": "us"
+      },
+      {
+        "id": "wired",
+        "name": "Wired",
+        "description": "Wired is a monthly American magazine, published in print and online editions, that focuses on how emerging technologies affect culture, the economy, and politics.",
+        "url": "https://www.wired.com",
+        "category": "technology",
+        "language": "en",
+        "country": "us"
+      }
+    ]
+  }
+}

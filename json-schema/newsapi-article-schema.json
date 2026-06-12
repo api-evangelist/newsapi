@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/newsapi/main/json-schema/newsapi-article-schema.json",
+  "title": "Article",
+  "description": "A news article returned by the NewsAPI",
+  "type": "object",
+  "properties": {
+    "source": {
+      "type": "object",
+      "description": "The news source or blog that the article originated from",
+      "properties": {
+        "id": {
+          "type": ["string", "null"],
+          "description": "The identifier of the news source. Can be used with other endpoints.",
+          "example": "techcrunch"
+        },
+        "name": {
+          "type": "string",
+          "description": "The display name of the news source.",
+          "example": "TechCrunch"
+        }
+      },
+      "required": ["name"]
+    },
+    "author": {
+      "type": ["string", "null"],
+      "description": "The author of the article.",
+      "example": "Jane Doe"
+    },
+    "title": {
+      "type": "string",
+      "description": "The headline or title of the article.",
+      "example": "Apple Reports Record Quarterly Earnings"
+    },
+    "description": {
+      "type": ["string", "null"],
+      "description": "A description or snippet from the article.",
+      "example": "Apple Inc. reported record quarterly earnings today, beating analyst expectations."
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "The direct URL to the article.",
+      "example": "https://techcrunch.com/2024/01/15/apple-earnings"
+    },
+    "urlToImage": {
+      "type": ["string", "null"],
+      "format": "uri",
+      "description": "The URL to a relevant image for the article.",
+      "example": "https://techcrunch.com/images/apple-earnings.jpg"
+    },
+    "publishedAt": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time that the article was published, in UTC.",
+      "example": "2024-01-15T18:00:00Z"
+    },
+    "content": {
+      "type": ["string", "null"],
+      "description": "The unformatted content of the article, truncated to 200 characters.",
+      "example": "Apple Inc. reported record quarterly earnings today... [+4500 chars]"
+    }
+  },
+  "required": ["source", "title", "url", "publishedAt"]
+}
