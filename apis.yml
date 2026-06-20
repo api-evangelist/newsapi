@@ -11,7 +11,7 @@ description: >
   authenticate via an API key passed as a query parameter or HTTP header, and
   all responses are returned as standard JSON.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 url: https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/apis.yml
 created: "2026-06-12"
 modified: "2026-06-12"
@@ -34,7 +34,7 @@ apis:
       source filtering, country and category filtering, language selection,
       date-range queries, and result sorting by relevance, popularity, or
       publication date.
-    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
     humanURL: https://newsapi.org/
     baseURL: https://newsapi.org/v2
     tags:
