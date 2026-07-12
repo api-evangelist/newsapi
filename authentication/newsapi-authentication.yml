@@ -1,0 +1,32 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/newsapi-newsapi-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+  - query
+schemes:
+- name: apiKeyHeader
+  type: apiKey
+  in: header
+  parameter: X-Api-Key
+  description: API key passed via X-Api-Key HTTP header
+  sources:
+  - openapi/newsapi-newsapi-openapi.yml
+- name: apiKeyQuery
+  type: apiKey
+  in: query
+  parameter: apiKey
+  description: API key passed as a query parameter
+  sources:
+  - openapi/newsapi-newsapi-openapi.yml
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  description: 'API key passed as a Bearer token. Note: the Bearer prefix is optional and the
+    key should NOT be base64 encoded.'
+  sources:
+  - openapi/newsapi-newsapi-openapi.yml

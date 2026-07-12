@@ -62,6 +62,10 @@ apis:
         url: https://newsapi.org/
         email: ""
 common:
+  - type: DomainSecurity
+    url: security/newsapi-domain-security.yml
+  - type: Authentication
+    url: authentication/newsapi-authentication.yml
   - type: Website
     url: https://newsapi.org/
   - type: Documentation
