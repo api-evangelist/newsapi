@@ -62,6 +62,8 @@ apis:
         url: https://newsapi.org/
         email: ""
 common:
+  - type: AgenticAccess
+    url: agentic-access/newsapi-agentic-access.yml
   - type: DomainSecurity
     url: security/newsapi-domain-security.yml
   - type: Authentication
