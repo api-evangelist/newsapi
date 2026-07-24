@@ -1,0 +1,283 @@
+openapi: 3.0.3
+info:
+  title: News Everything Sources API
+  description: 'NewsAPI is a simple, easy-to-use REST API that returns JSON metadata for news articles and breaking headlines published by over 80,000 worldwide sources and blogs. The API supports full-text keyword search across hundreds of millions of articles, filtering by source domain, language, date range, and sorting by relevance or publication date. A dedicated top-headlines endpoint delivers live breaking news by country and category. Developers authenticate via an API key passed as a query parameter or HTTP header.
+
+    '
+  version: '2'
+  contact:
+    name: NewsAPI Support
+    url: https://newsapi.org/
+  termsOfService: https://newsapi.org/terms
+  license:
+    name: Proprietary
+    url: https://newsapi.org/terms
+servers:
+- url: https://newsapi.org/v2
+  description: Production server
+security:
+- apiKeyHeader: []
+- apiKeyQuery: []
+- bearerAuth: []
+tags:
+- name: Sources
+  description: Get available news sources
+paths:
+  /top-headlines/sources:
+    get:
+      operationId: getSources
+      summary: Get available news sources
+      description: 'Returns the subset of news publishers that top headlines (/v2/top-headlines) are available from. It''s mainly a convenience endpoint that you can use to keep track of the publishers available on the API, and you can pipe it straight into your news source selector component.
+
+        '
+      tags:
+      - Sources
+      parameters:
+      - name: category
+        in: query
+        description: Find sources that display news of this category.
+        required: false
+        schema:
+          type: string
+          enum:
+          - business
+          - entertainment
+          - general
+          - health
+          - science
+          - sports
+          - technology
+      - name: language
+        in: query
+        description: Find sources that display news in a specific language.
+        required: false
+        schema:
+          type: string
+          enum:
+          - ar
+          - de
+          - en
+          - es
+          - fr
+          - he
+          - it
+          - nl
+          - 'no'
+          - pt
+          - ru
+          - sv
+          - ud
+          - zh
+      - name: country
+        in: query
+        description: Find sources that display news in a specific country.
+        required: false
+        schema:
+          type: string
+          enum:
+          - ae
+          - ar
+          - at
+          - au
+          - be
+          - bg
+          - br
+          - ca
+          - ch
+          - cn
+          - co
+          - cu
+          - cz
+          - de
+          - eg
+          - fr
+          - gb
+          - gr
+          - hk
+          - hu
+          - id
+          - ie
+          - il
+          - in
+          - it
+          - jp
+          - kr
+          - lt
+          - lv
+          - ma
+          - mx
+          - my
+          - ng
+          - nl
+          - 'no'
+          - nz
+          - ph
+          - pl
+          - pt
+          - ro
+          - rs
+          - ru
+          - sa
+          - se
+          - sg
+          - si
+          - sk
+          - th
+          - tr
+          - tw
+          - ua
+          - us
+          - ve
+          - za
+      - name: apiKey
+        in: query
+        description: Your API key. Alternatively provide via the X-Api-Key header.
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Successful response with sources
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SourcesResponse'
+              example:
+                status: ok
+                sources:
+                - id: abc-news
+                  name: ABC News
+                  description: Your trusted source for breaking news, analysis...
+                  url: https://abcnews.go.com
+                  category: general
+                  language: en
+                  country: us
+        '400':
+          description: Bad request - missing or invalid parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '401':
+          description: Unauthorized - invalid or missing API key
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '429':
+          description: Too many requests - rate limit exceeded
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+        '500':
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    NewsSource:
+      type: object
+      description: A news source or publisher
+      properties:
+        id:
+          type: string
+          description: The identifier of the news source. You can use this with our other endpoints.
+          example: techcrunch
+        name:
+          type: string
+          description: The name of the news source.
+          example: TechCrunch
+        description:
+          type: string
+          description: A description of the news source.
+          example: The latest technology news and information on startups, money, mobile, security, gadgets, and more.
+        url:
+          type: string
+          format: uri
+          description: The URL of the homepage.
+          example: https://techcrunch.com
+        category:
+          type: string
+          description: The type of news to expect from this news source.
+          enum:
+          - business
+          - entertainment
+          - general
+          - health
+          - science
+          - sports
+          - technology
+          example: technology
+        language:
+          type: string
+          description: The language that this news source writes in.
+          example: en
+        country:
+          type: string
+          description: The country this news source is based in (and primarily writes about).
+          example: us
+    SourcesResponse:
+      type: object
+      description: Response containing a list of news sources
+      properties:
+        status:
+          type: string
+          description: If the request was successful or not. Options are ok and error.
+          enum:
+          - ok
+          - error
+          example: ok
+        sources:
+          type: array
+          description: The results of the request.
+          items:
+            $ref: '#/components/schemas/NewsSource'
+    ErrorResponse:
+      type: object
+      description: Error response
+      properties:
+        status:
+          type: string
+          description: Always "error" for error responses.
+          enum:
+          - error
+          example: error
+        code:
+          type: string
+          description: A short code identifying the type of error returned.
+          enum:
+          - apiKeyDisabled
+          - apiKeyExhausted
+          - apiKeyInvalid
+          - apiKeyMissing
+          - parameterInvalid
+          - parametersMissing
+          - rateLimited
+          - sourcesTooMany
+          - sourceDoesNotExist
+          - unexpectedError
+          example: apiKeyInvalid
+        message:
+          type: string
+          description: A fuller description of the error, usually including how to fix it.
+          example: Your API key hasn't been entered correctly. Double check it and try again.
+  securitySchemes:
+    apiKeyHeader:
+      type: apiKey
+      in: header
+      name: X-Api-Key
+      description: API key passed via X-Api-Key HTTP header
+    apiKeyQuery:
+      type: apiKey
+      in: query
+      name: apiKey
+      description: API key passed as a query parameter
+    bearerAuth:
+      type: http
+      scheme: bearer
+      description: 'API key passed as a Bearer token. Note: the Bearer prefix is optional and the key should NOT be base64 encoded.
+
+        '
