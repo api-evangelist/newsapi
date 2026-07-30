@@ -11,7 +11,20 @@ description: >
   authenticate via an API key passed as a query parameter or HTTP header, and
   all responses are returned as standard JSON.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/newsapi.png
 url: https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/apis.yml
 created: "2026-06-12"
 modified: "2026-06-12"
@@ -26,41 +39,87 @@ tags:
   - REST
   - JSON
 apis:
-  - aid: newsapi:newsapi
-    name: NewsAPI
-    description: >
-      REST API providing access to live and historic news articles and top
-      headlines from over 80,000 sources worldwide. Supports keyword search,
-      source filtering, country and category filtering, language selection,
-      date-range queries, and result sorting by relevance, popularity, or
-      publication date.
-    image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
-    humanURL: https://newsapi.org/
-    baseURL: https://newsapi.org/v2
-    tags:
-      - News
-      - Headlines
-      - Articles
-      - Search
-    properties:
-      - type: Documentation
-        url: https://newsapi.org/docs
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/openapi/newsapi-newsapi-openapi.yml
-      - type: JSONSchema
-        url: https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/json-schema/newsapi-article-schema.json
-      - type: JSONSchema
-        url: https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/json-schema/newsapi-source-schema.json
-      - type: JSONSchema
-        url: https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/json-schema/newsapi-error-schema.json
-      - type: Vocabulary
-        url: https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/vocabulary/newsapi-vocabulary.yml
-      - type: JSONLDContext
-        url: https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/json-ld/newsapi-context.jsonld
-    contact:
-      - FN: NewsAPI Support
-        url: https://newsapi.org/
-        email: ""
+- aid: newsapi:newsapi-everything-api
+  name: NewsAPI Everything API
+  description: Search all articles from all sources
+  humanURL: https://newsapi.org/
+  baseURL: https://newsapi.org/v2
+  tags:
+  - Everything
+  properties:
+  - type: OpenAPI
+    url: openapi/newsapi-everything-api-openapi.yml
+  - type: Documentation
+    url: https://newsapi.org/docs
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/json-schema/newsapi-article-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/json-schema/newsapi-source-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/json-schema/newsapi-error-schema.json
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/vocabulary/newsapi-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/json-ld/newsapi-context.jsonld
+- aid: newsapi:newsapi-sources-api
+  name: NewsAPI Sources API
+  description: Get available news sources
+  humanURL: https://newsapi.org/
+  baseURL: https://newsapi.org/v2
+  tags:
+  - Sources
+  properties:
+  - type: OpenAPI
+    url: openapi/newsapi-sources-api-openapi.yml
+  - type: Documentation
+    url: https://newsapi.org/docs
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/json-schema/newsapi-article-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/json-schema/newsapi-source-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/json-schema/newsapi-error-schema.json
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/vocabulary/newsapi-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/json-ld/newsapi-context.jsonld
+- aid: newsapi:newsapi-top-headlines-api
+  name: NewsAPI Top Headlines API
+  description: Get live top and breaking headlines
+  humanURL: https://newsapi.org/
+  baseURL: https://newsapi.org/v2
+  tags:
+  - Top Headlines
+  properties:
+  - type: OpenAPI
+    url: openapi/newsapi-top-headlines-api-openapi.yml
+  - type: Documentation
+    url: https://newsapi.org/docs
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/json-schema/newsapi-article-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/json-schema/newsapi-source-schema.json
+  - type: JSONSchema
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/json-schema/newsapi-error-schema.json
+  - type: Vocabulary
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/vocabulary/newsapi-vocabulary.yml
+  - type: JSONLDContext
+    url: >-
+      https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/json-ld/newsapi-context.jsonld
 common:
   - type: AgenticAccess
     url: agentic-access/newsapi-agentic-access.yml
