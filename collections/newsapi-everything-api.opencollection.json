@@ -1,0 +1,111 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "News Everything API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Everything",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search all articles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://newsapi.org/v2/everything",
+            "params": [
+              {
+                "name": "q",
+                "value": "",
+                "type": "query",
+                "description": "Keywords or phrases to search for in the article title and body. Surround phrases with quotes for exact match. Prepend words or phrases that must appear with a + symbol. Prepend words that must not appear with a - symbol. The complete value must be URL-encoded. Max length: 500 characters.\n"
+              },
+              {
+                "name": "searchIn",
+                "value": "",
+                "type": "query",
+                "description": "The fields to restrict your q search to. Multiple options can be specified as a comma-separated string.\n"
+              },
+              {
+                "name": "sources",
+                "value": "",
+                "type": "query",
+                "description": "A comma-separated string of identifiers (maximum 20) for the news sources or blogs you want headlines from. Use the /top-headlines/sources endpoint to locate these programmatically. Note: you can't mix this param with the country or category params.\n"
+              },
+              {
+                "name": "domains",
+                "value": "",
+                "type": "query",
+                "description": "A comma-separated string of domains (eg bbc.co.uk, techcrunch.com, engadget.com) to restrict the search to.\n"
+              },
+              {
+                "name": "excludeDomains",
+                "value": "",
+                "type": "query",
+                "description": "A comma-separated string of domains (eg bbc.co.uk, techcrunch.com, engadget.com) to remove from the results.\n"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query",
+                "description": "A date and optional time for the oldest article allowed. This should be in ISO 8601 format (e.g. 2024-01-01 or 2024-01-01T00:00:00).\n"
+              },
+              {
+                "name": "to",
+                "value": "",
+                "type": "query",
+                "description": "A date and optional time for the newest article allowed. This should be in ISO 8601 format (e.g. 2024-01-01 or 2024-01-01T00:00:00).\n"
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "The 2-letter ISO-639-1 code of the language you want to get headlines for.\n"
+              },
+              {
+                "name": "sortBy",
+                "value": "",
+                "type": "query",
+                "description": "The order to sort the articles in. Possible options: relevancy, popularity, publishedAt. relevancy = articles more closely related to q come first. popularity = articles from popular sources and publishers come first. publishedAt = newest articles come first.\n"
+              },
+              {
+                "name": "pageSize",
+                "value": "",
+                "type": "query",
+                "description": "The number of results to return per page. 20 is the default, 100 is the maximum.\n"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Use this to page through the results. Default is 1.\n"
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "query",
+                "description": "Your API key. Alternatively provide via the X-Api-Key header."
+              }
+            ]
+          },
+          "docs": "Search through millions of articles from over 80,000 large and small news sources and blogs. This endpoint suits article discovery and analysis. Supports keyword search, source filtering, domain filtering, language selection, date-range queries, and result sorting.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

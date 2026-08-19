@@ -1,0 +1,63 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "News Everything Sources API",
+    "version": "2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-Api-Key",
+      "value": "{{X-Api-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get available news sources",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://newsapi.org/v2/top-headlines/sources",
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "query",
+                "description": "Find sources that display news of this category."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "Find sources that display news in a specific language."
+              },
+              {
+                "name": "country",
+                "value": "",
+                "type": "query",
+                "description": "Find sources that display news in a specific country."
+              },
+              {
+                "name": "apiKey",
+                "value": "",
+                "type": "query",
+                "description": "Your API key. Alternatively provide via the X-Api-Key header."
+              }
+            ]
+          },
+          "docs": "Returns the subset of news publishers that top headlines (/v2/top-headlines) are available from. It's mainly a convenience endpoint that you can use to keep track of the publishers available on the API, and you can pipe it straight into your news source selector component.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
