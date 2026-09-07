@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: News Everything Sources API
   description: 'NewsAPI is a simple, easy-to-use REST API that returns JSON metadata for news articles and breaking headlines published by over 80,000 worldwide sources and blogs. The API supports full-text keyword search across hundreds of millions of articles, filtering by source domain, language, date range, and sorting by relevance or publication date. A dedicated top-headlines endpoint delivers live breaking news by country and category. Developers authenticate via an API key passed as a query parameter or HTTP header.

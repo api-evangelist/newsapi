@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: News Everything API
   description: 'NewsAPI is a simple, easy-to-use REST API that returns JSON metadata for news articles and breaking headlines published by over 80,000 worldwide sources and blogs. The API supports full-text keyword search across hundreds of millions of articles, filtering by source domain, language, date range, and sorting by relevance or publication date. A dedicated top-headlines endpoint delivers live breaking news by country and category. Developers authenticate via an API key passed as a query parameter or HTTP header.
@@ -206,62 +206,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    Source:
-      type: object
-      description: The news source or blog that an article originated from
-      properties:
-        id:
-          type: string
-          nullable: true
-          description: The identifier of the news source. You can use this with our other endpoints.
-          example: techcrunch
-        name:
-          type: string
-          description: The display name of the news source.
-          example: TechCrunch
-    Article:
-      type: object
-      description: A news article
-      properties:
-        source:
-          $ref: '#/components/schemas/Source'
-        author:
-          type: string
-          nullable: true
-          description: The author of the article.
-          example: Jane Doe
-        title:
-          type: string
-          description: The headline or title of the article.
-          example: Apple Reports Record Quarterly Earnings
-        description:
-          type: string
-          nullable: true
-          description: A description or snippet from the article.
-          example: Apple Inc. reported record quarterly earnings today, beating analyst expectations.
-        url:
-          type: string
-          format: uri
-          description: The direct URL to the article.
-          example: https://techcrunch.com/2024/01/15/apple-earnings
-        urlToImage:
-          type: string
-          format: uri
-          nullable: true
-          description: The URL to a relevant image for the article.
-          example: https://techcrunch.com/images/apple-earnings.jpg
-        publishedAt:
-          type: string
-          format: date-time
-          description: The date and time that the article was published, in UTC (+000).
-          example: '2024-01-15T18:00:00Z'
-        content:
-          type: string
-          nullable: true
-          description: 'The unformatted content of the article, where available. This is truncated to 200 chars. A link to the full article is always in the url parameter.
-
-            '
-          example: Apple Inc. reported record quarterly earnings today, beating analyst expectations... [+4500 chars]
     ArticlesResponse:
       type: object
       description: Response containing a list of articles
@@ -282,6 +226,67 @@ components:
           description: The results of the request.
           items:
             $ref: '#/components/schemas/Article'
+    Source:
+      type: object
+      description: The news source or blog that an article originated from
+      properties:
+        id:
+          type:
+          - string
+          - 'null'
+          description: The identifier of the news source. You can use this with our other endpoints.
+          example: techcrunch
+        name:
+          type: string
+          description: The display name of the news source.
+          example: TechCrunch
+    Article:
+      type: object
+      description: A news article
+      properties:
+        source:
+          $ref: '#/components/schemas/Source'
+        author:
+          type:
+          - string
+          - 'null'
+          description: The author of the article.
+          example: Jane Doe
+        title:
+          type: string
+          description: The headline or title of the article.
+          example: Apple Reports Record Quarterly Earnings
+        description:
+          type:
+          - string
+          - 'null'
+          description: A description or snippet from the article.
+          example: Apple Inc. reported record quarterly earnings today, beating analyst expectations.
+        url:
+          type: string
+          format: uri
+          description: The direct URL to the article.
+          example: https://techcrunch.com/2024/01/15/apple-earnings
+        urlToImage:
+          type:
+          - string
+          - 'null'
+          format: uri
+          description: The URL to a relevant image for the article.
+          example: https://techcrunch.com/images/apple-earnings.jpg
+        publishedAt:
+          type: string
+          format: date-time
+          description: The date and time that the article was published, in UTC (+000).
+          example: '2024-01-15T18:00:00Z'
+        content:
+          type:
+          - string
+          - 'null'
+          description: 'The unformatted content of the article, where available. This is truncated to 200 chars. A link to the full article is always in the url parameter.
+
+            '
+          example: Apple Inc. reported record quarterly earnings today, beating analyst expectations... [+4500 chars]
     ErrorResponse:
       type: object
       description: Error response
