@@ -1,9 +1,7 @@
 openapi: 3.2.0
 info:
-  title: News Everything Sources API
-  description: 'NewsAPI is a simple, easy-to-use REST API that returns JSON metadata for news articles and breaking headlines published by over 80,000 worldwide sources and blogs. The API supports full-text keyword search across hundreds of millions of articles, filtering by source domain, language, date range, and sorting by relevance or publication date. A dedicated top-headlines endpoint delivers live breaking news by country and category. Developers authenticate via an API key passed as a query parameter or HTTP header.
-
-    '
+  title: News Sources API
+  description: NewsAPI is a simple, easy-to-use REST API that returns JSON metadata for news articles and breaking headlines published by over 80,000 worldwide sources and blogs.
   version: '2'
   contact:
     name: NewsAPI Support
@@ -27,9 +25,7 @@ paths:
     get:
       operationId: getSources
       summary: Get available news sources
-      description: 'Returns the subset of news publishers that top headlines (/v2/top-headlines) are available from. It''s mainly a convenience endpoint that you can use to keep track of the publishers available on the API, and you can pipe it straight into your news source selector component.
-
-        '
+      description: Returns the subset of news publishers that top headlines (/v2/top-headlines) are available from. It's mainly a convenience endpoint that you can use to keep track of the publishers available on the API, and you can pipe it straight into your news source selector component.
       tags:
       - Sources
       parameters:
@@ -178,6 +174,35 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
+    ErrorResponse:
+      type: object
+      description: Error response
+      properties:
+        status:
+          type: string
+          description: Always "error" for error responses.
+          enum:
+          - error
+          example: error
+        code:
+          type: string
+          description: A short code identifying the type of error returned.
+          enum:
+          - apiKeyDisabled
+          - apiKeyExhausted
+          - apiKeyInvalid
+          - apiKeyMissing
+          - parameterInvalid
+          - parametersMissing
+          - rateLimited
+          - sourcesTooMany
+          - sourceDoesNotExist
+          - unexpectedError
+          example: apiKeyInvalid
+        message:
+          type: string
+          description: A fuller description of the error, usually including how to fix it.
+          example: Your API key hasn't been entered correctly. Double check it and try again.
     NewsSource:
       type: object
       description: A news source or publisher
@@ -235,35 +260,6 @@ components:
           description: The results of the request.
           items:
             $ref: '#/components/schemas/NewsSource'
-    ErrorResponse:
-      type: object
-      description: Error response
-      properties:
-        status:
-          type: string
-          description: Always "error" for error responses.
-          enum:
-          - error
-          example: error
-        code:
-          type: string
-          description: A short code identifying the type of error returned.
-          enum:
-          - apiKeyDisabled
-          - apiKeyExhausted
-          - apiKeyInvalid
-          - apiKeyMissing
-          - parameterInvalid
-          - parametersMissing
-          - rateLimited
-          - sourcesTooMany
-          - sourceDoesNotExist
-          - unexpectedError
-          example: apiKeyInvalid
-        message:
-          type: string
-          description: A fuller description of the error, usually including how to fix it.
-          example: Your API key hasn't been entered correctly. Double check it and try again.
   securitySchemes:
     apiKeyHeader:
       type: apiKey
