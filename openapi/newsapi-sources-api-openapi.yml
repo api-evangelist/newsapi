@@ -174,35 +174,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    ErrorResponse:
-      type: object
-      description: Error response
-      properties:
-        status:
-          type: string
-          description: Always "error" for error responses.
-          enum:
-          - error
-          example: error
-        code:
-          type: string
-          description: A short code identifying the type of error returned.
-          enum:
-          - apiKeyDisabled
-          - apiKeyExhausted
-          - apiKeyInvalid
-          - apiKeyMissing
-          - parameterInvalid
-          - parametersMissing
-          - rateLimited
-          - sourcesTooMany
-          - sourceDoesNotExist
-          - unexpectedError
-          example: apiKeyInvalid
-        message:
-          type: string
-          description: A fuller description of the error, usually including how to fix it.
-          example: Your API key hasn't been entered correctly. Double check it and try again.
     NewsSource:
       type: object
       description: A news source or publisher
@@ -260,6 +231,35 @@ components:
           description: The results of the request.
           items:
             $ref: '#/components/schemas/NewsSource'
+    ErrorResponse:
+      type: object
+      description: Error response
+      properties:
+        status:
+          type: string
+          description: Always "error" for error responses.
+          enum:
+          - error
+          example: error
+        code:
+          type: string
+          description: A short code identifying the type of error returned.
+          enum:
+          - apiKeyDisabled
+          - apiKeyExhausted
+          - apiKeyInvalid
+          - apiKeyMissing
+          - parameterInvalid
+          - parametersMissing
+          - rateLimited
+          - sourcesTooMany
+          - sourceDoesNotExist
+          - unexpectedError
+          example: apiKeyInvalid
+        message:
+          type: string
+          description: A fuller description of the error, usually including how to fix it.
+          example: Your API key hasn't been entered correctly. Double check it and try again.
   securitySchemes:
     apiKeyHeader:
       type: apiKey
