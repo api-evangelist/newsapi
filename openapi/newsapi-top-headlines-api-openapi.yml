@@ -212,20 +212,35 @@ components:
           description: The results of the request.
           items:
             $ref: '#/components/schemas/Article'
-    Source:
+    ErrorResponse:
       type: object
-      description: The news source or blog that an article originated from
+      description: Error response
       properties:
-        id:
-          type:
-          - string
-          - 'null'
-          description: The identifier of the news source. You can use this with our other endpoints.
-          example: techcrunch
-        name:
+        status:
           type: string
-          description: The display name of the news source.
-          example: TechCrunch
+          description: Always "error" for error responses.
+          enum:
+          - error
+          example: error
+        code:
+          type: string
+          description: A short code identifying the type of error returned.
+          enum:
+          - apiKeyDisabled
+          - apiKeyExhausted
+          - apiKeyInvalid
+          - apiKeyMissing
+          - parameterInvalid
+          - parametersMissing
+          - rateLimited
+          - sourcesTooMany
+          - sourceDoesNotExist
+          - unexpectedError
+          example: apiKeyInvalid
+        message:
+          type: string
+          description: A fuller description of the error, usually including how to fix it.
+          example: Your API key hasn't been entered correctly. Double check it and try again.
     Article:
       type: object
       description: A news article
@@ -273,35 +288,20 @@ components:
 
             '
           example: Apple Inc. reported record quarterly earnings today, beating analyst expectations... [+4500 chars]
-    ErrorResponse:
+    Source:
       type: object
-      description: Error response
+      description: The news source or blog that an article originated from
       properties:
-        status:
+        id:
+          type:
+          - string
+          - 'null'
+          description: The identifier of the news source. You can use this with our other endpoints.
+          example: techcrunch
+        name:
           type: string
-          description: Always "error" for error responses.
-          enum:
-          - error
-          example: error
-        code:
-          type: string
-          description: A short code identifying the type of error returned.
-          enum:
-          - apiKeyDisabled
-          - apiKeyExhausted
-          - apiKeyInvalid
-          - apiKeyMissing
-          - parameterInvalid
-          - parametersMissing
-          - rateLimited
-          - sourcesTooMany
-          - sourceDoesNotExist
-          - unexpectedError
-          example: apiKeyInvalid
-        message:
-          type: string
-          description: A fuller description of the error, usually including how to fix it.
-          example: Your API key hasn't been entered correctly. Double check it and try again.
+          description: The display name of the news source.
+          example: TechCrunch
   securitySchemes:
     apiKeyHeader:
       type: apiKey
