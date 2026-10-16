@@ -2,11 +2,14 @@
   "repo": "newsapi",
   "feeds": [
     {
-      "source": "https://www.linkedin.com/company/newsapi",
-      "error": "HTTPError"
+      "source": "https://newsapi.org/blog",
+      "feed_url": "https://newsapi.org/blog",
+      "title": "",
+      "saved": 0,
+      "method": "none"
     }
   ],
-  "fetched": "2026-10-03T12:30:02Z",
+  "fetched": "2026-10-10T13:15:00Z",
   "post_count": 0,
   "agent_pulled": "2026-07-04"
 }
