@@ -202,26 +202,20 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    ArticlesResponse:
+    Source:
       type: object
-      description: Response containing a list of articles
+      description: The news source or blog that an article originated from
       properties:
-        status:
+        id:
+          type:
+          - string
+          - 'null'
+          description: The identifier of the news source. You can use this with our other endpoints.
+          example: techcrunch
+        name:
           type: string
-          description: If the request was successful or not. Options are ok and error.
-          enum:
-          - ok
-          - error
-          example: ok
-        totalResults:
-          type: integer
-          description: The total number of results available for your request.
-          example: 4215
-        articles:
-          type: array
-          description: The results of the request.
-          items:
-            $ref: '#/components/schemas/Article'
+          description: The display name of the news source.
+          example: TechCrunch
     Article:
       type: object
       description: A news article
@@ -269,6 +263,26 @@ components:
 
             '
           example: Apple Inc. reported record quarterly earnings today, beating analyst expectations... [+4500 chars]
+    ArticlesResponse:
+      type: object
+      description: Response containing a list of articles
+      properties:
+        status:
+          type: string
+          description: If the request was successful or not. Options are ok and error.
+          enum:
+          - ok
+          - error
+          example: ok
+        totalResults:
+          type: integer
+          description: The total number of results available for your request.
+          example: 4215
+        articles:
+          type: array
+          description: The results of the request.
+          items:
+            $ref: '#/components/schemas/Article'
     ErrorResponse:
       type: object
       description: Error response
@@ -298,20 +312,6 @@ components:
           type: string
           description: A fuller description of the error, usually including how to fix it.
           example: Your API key hasn't been entered correctly. Double check it and try again.
-    Source:
-      type: object
-      description: The news source or blog that an article originated from
-      properties:
-        id:
-          type:
-          - string
-          - 'null'
-          description: The identifier of the news source. You can use this with our other endpoints.
-          example: techcrunch
-        name:
-          type: string
-          description: The display name of the news source.
-          example: TechCrunch
   securitySchemes:
     apiKeyHeader:
       type: apiKey

@@ -174,22 +174,6 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse'
 components:
   schemas:
-    SourcesResponse:
-      type: object
-      description: Response containing a list of news sources
-      properties:
-        status:
-          type: string
-          description: If the request was successful or not. Options are ok and error.
-          enum:
-          - ok
-          - error
-          example: ok
-        sources:
-          type: array
-          description: The results of the request.
-          items:
-            $ref: '#/components/schemas/NewsSource'
     ErrorResponse:
       type: object
       description: Error response
@@ -260,6 +244,22 @@ components:
           type: string
           description: The country this news source is based in (and primarily writes about).
           example: us
+    SourcesResponse:
+      type: object
+      description: Response containing a list of news sources
+      properties:
+        status:
+          type: string
+          description: If the request was successful or not. Options are ok and error.
+          enum:
+          - ok
+          - error
+          example: ok
+        sources:
+          type: array
+          description: The results of the request.
+          items:
+            $ref: '#/components/schemas/NewsSource'
   securitySchemes:
     apiKeyHeader:
       type: apiKey
