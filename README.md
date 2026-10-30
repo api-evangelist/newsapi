@@ -1,4 +1,4 @@
-# NewsAPI (newsapi)
+# NewsAPI
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,80 +66,154 @@
 
 NewsAPI is a simple, easy-to-use REST API that returns JSON metadata for news articles and breaking headlines published by over 80,000 worldwide sources and blogs. The API supports full-text keyword search across hundreds of millions of articles, filtering by source domain, language, date range, and sorting by relevance or publication date. A dedicated top-headlines endpoint delivers live breaking news by country and category — covering business, entertainment, general, health, science, sports, and technology. Developers authenticate via an API key passed as a query parameter or HTTP header, and all responses are returned as standard JSON.
 
-**APIs.json:** https://raw.githubusercontent.com/api-evangelist/newsapi/refs/heads/main/apis.yml
+**Areas:** News · Headlines · Articles · Search · Media · Content · REST · JSON
 
-**Naftiko:** https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=newsapi-api-evangelist&utm_content=repo
+## NewsAPI on APIs.io
 
-## Tags
+Everything profiled for NewsAPI is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/newsapi/](https://apis.io/providers/newsapi/)** — or go straight to one of the APIs or properties below.
 
-- News
-- Headlines
-- Articles
-- Search
-- Media
-- Content
-- REST
-- JSON
+### APIs (3)
 
-## APIs
+- [NewsAPI Everything API](https://apis.io/apis/newsapi/newsapi-everything-api/) — Search all articles from all sources
+- [NewsAPI Sources API](https://apis.io/apis/newsapi/newsapi-sources-api/) — Get available news sources
+- [NewsAPI Top Headlines API](https://apis.io/apis/newsapi/newsapi-top-headlines-api/) — Get live top and breaking headlines
 
-| Name | Base URL | Documentation |
-|------|----------|---------------|
-| NewsAPI | https://newsapi.org/v2 | https://newsapi.org/docs |
+### Published properties
 
-### Endpoints
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-| Endpoint | Method | Path | Description |
-|----------|--------|------|-------------|
-| Everything | GET | /v2/everything | Search all news articles with keyword, source, domain, language, and date filters |
-| Top Headlines | GET | /v2/top-headlines | Retrieve live breaking headlines by country, category, or source |
-| Sources | GET | /v2/sources | List available news sources supported by the API |
+#### Agentic access (1)
 
-## Plans, Rate Limits, and FinOps
+Which operations an agent can call, which act, and which need a human in the loop.
 
-| Resource | Path |
-|----------|------|
-| Plans and Pricing | [plans/newsapi-plans-pricing.yml](plans/newsapi-plans-pricing.yml) |
-| Rate Limits | [rate-limits/newsapi-rate-limits.yml](rate-limits/newsapi-rate-limits.yml) |
-| FinOps | [finops/newsapi-finops.yml](finops/newsapi-finops.yml) |
+- [Newsapi Agentic Access](https://apis.io/agentic-access/newsapi/newsapi-agentic-access/)
 
-### Plan Summary
+#### JSON Schema (3)
 
-| Plan | Price | Included Requests | Overage |
-|------|-------|-------------------|---------|
-| Developer | Free | 100/day | None |
-| Business | $449/month | 250,000/month | $0.0018/request |
-| Advanced | $1,749/month | 2,000,000/month | $0.0009/request |
-| Enterprise | Contact | Unlimited | Custom |
+The data models the API reads and writes.
 
-## Timestamps
+- [Article](https://apis.io/schemas/newsapi/newsapi-article/)
+- [ErrorResponse](https://apis.io/schemas/newsapi/newsapi-error/)
+- [NewsSource](https://apis.io/schemas/newsapi/newsapi-source/)
 
-- **Created:** 2026-06-12
-- **Modified:** 2026-06-12
+#### JSON-LD (1)
 
-## Common
+Linked-data contexts for the provider's vocabulary.
 
-| Type | URL |
-|------|-----|
-| Website | https://newsapi.org/ |
-| Documentation | https://newsapi.org/docs |
-| GitHub Org | https://github.com/News-API-gh |
-| LinkedIn | https://www.linkedin.com/company/newsapi |
-| Blog | https://newsapi.org/blog |
-| Pricing | https://newsapi.org/pricing |
-| Status Page | https://newsapi.org/status |
-| X (Twitter) | https://x.com/newsapi |
+- [Newsapi Context](https://apis.io/jsonld/newsapi/newsapi-context/)
 
-### Official SDKs (GitHub: News-API-gh)
+#### Vocabulary (1)
 
-- [News-API-python](https://github.com/News-API-gh/News-API-python) — Python client library
-- [News-API-node](https://github.com/News-API-gh/News-API-node) — Node.js client library
-- [News-API-csharp](https://github.com/News-API-gh/News-API-csharp) — C# client library
-- [News-API-java](https://github.com/News-API-gh/News-API-java) — Java client library
-- [News-API-php](https://github.com/News-API-gh/News-API-php) — PHP client library
+The provider's domain terms, defined.
 
-## Maintainers
+- [Newsapi Vocabulary](https://apis.io/vocabularies/newsapi/newsapi-vocabulary/)
 
-| Name | Email |
-|------|-------|
-| Kin Lane | kin@apievangelist.com |
+#### Examples (3)
+
+Example requests and responses.
+
+- [Newsapi Everything Example](https://apis.io/examples/newsapi/newsapi-everything-example/)
+- [Newsapi Sources Example](https://apis.io/examples/newsapi/newsapi-sources-example/)
+- [Newsapi Top Headlines Example](https://apis.io/examples/newsapi/newsapi-top-headlines-example/)
+
+#### Collections (3)
+
+Postman and Open Collection request collections.
+
+- [News Everything API](https://apis.io/collections/newsapi/open-newsapi-everything-api/)
+- [News Everything Sources API](https://apis.io/collections/newsapi/open-newsapi-sources-api/)
+- [News Everything Top Headlines API](https://apis.io/collections/newsapi/open-newsapi-top-headlines-api/)
+
+#### Governance rules (1)
+
+Spectral rulesets for the provider's contracts.
+
+- [NewsAPI — jsonschema rules](https://apis.io/rules/newsapi/newsapi-jsonschema-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Newsapi Authentication](https://apis.io/security/newsapi/newsapi-authentication/)
+- [Newsapi Domain Security](https://apis.io/security/newsapi/newsapi-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Newsapi Plans Pricing](https://apis.io/plans/newsapi/newsapi-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Newsapi Rate Limits](https://apis.io/rate-limits/newsapi/newsapi-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Newsapi Finops](https://apis.io/finops/newsapi/newsapi-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://newsapi.org/)
+- [Documentation](https://newsapi.org/docs)
+- [Pricing](https://newsapi.org/pricing)
+- [Blog](https://newsapi.org/blog)
+- [Status](https://newsapi.org/status)
+
+## API Evangelist rating
+
+**Kin Score 35.4** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 62.4 |
+| Contract governance | 23.5 |
+| Operational transparency | 13.2 |
+| Developer ergonomics | 23.8 |
+| Access clarity | 18.4 |
+
+**Agent readiness 33.2** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | verified |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/newsapi/](https://apis.io/providers/newsapi/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for NewsAPI: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/newsapi/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
